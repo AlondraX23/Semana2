@@ -1,5 +1,5 @@
 <script setup>
-// import { ref } from 'vue';
+import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 // import Card from './components/Card.vue';
 
@@ -46,7 +46,6 @@ import { useRouter } from 'vue-router';
 //             var altura = datos.height;
 //             var nombre = datos.name;
 //             var experiencia = datos.base_experience;
-//             var pokemonName = document.getElementById('card-title')
 
 //             peso = (peso / 10).toFixed(1);
 //             altura = (altura / 10).toFixed(1);
@@ -54,21 +53,6 @@ import { useRouter } from 'vue-router';
 
 //             var img = datos.sprites.front_default;
 
-
-//             // var imgContainer = document.getElementById('img');
-//             // var newImageSrc = img;
-//             // var newImgElement = `<img id="img" src="${img}">`;
-//             // newImgElement.innerHTML = img;
-
-//             pokemonName.innerHTML = nombre
-
-
-//             graficar(peso, altura);
-//             graficarScatter(experiencia);
-//             graficarBarraV(altura);
-//             graficarBarraH(peso);
-//             console.log(datos)
-//             // alert(img)
 //         })
 // console.log(endPoint)
 
@@ -80,6 +64,12 @@ import { useRouter } from 'vue-router';
 //         listaPokemon.value = data.results;
 //     })
 
+// var infoPokemon = ref([])
+
+// fetch(`https://pokeapi.co/api/v2/${route.params.name}/`)
+//     .then((res) => res.json())
+//     .then((data) => {infoPokemon.value = data, console.log})
+
 const router = useRouter()
 const volver = () => {
     router.push('/contenido')
@@ -88,12 +78,13 @@ const volver = () => {
 
 <template>
     <section class="container py-4 main">
-        <h1> {{ $route.params.name }} </h1>
-
+        <h1>{{ $route.params.name }}</h1>
+        <!-- <template v-for="item in infoPokemon"></template> -->
         <div class="card mb-3" style="max-width: 540px;">
             <div class="row g-0">
                 <div class="col-md-4">
                     <img :src="img" class="img-fluid rounded-start" alt="...">
+                    <!-- <img :src="item.sprites.front_default" class="img-fluid rounded-start" alt="..."> -->
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
@@ -106,7 +97,7 @@ const volver = () => {
                 </div>
             </div>
         </div>
-        <button type="button" class="btn btn-outline-danger mb-2" @click="volver"> Volver</button>
-        <h1>{{ nombre }}</h1>
+        <button type="button" class="btn btn-outline-danger mt-2" @click="volver"> Volver</button>
+
     </section>
 </template>
