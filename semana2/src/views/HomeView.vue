@@ -1,9 +1,10 @@
 <script setup>
-import TheWelcome from '../components/TheWelcome.vue'
+import {useRouter } from 'vue-router';
+
 </script>
 
 <template>
-  <main>
-    <TheWelcome />
-  </main>
+  <section class="container py-4 main">
+
+  </section>
 </template>
